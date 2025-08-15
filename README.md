@@ -1,10 +1,22 @@
 # Smart Timetable Reminder
 
+<!-- Human-friendly intro -->
 <p align="center">
   <img src="./assets/icon.png" alt="App Icon" width="120" height="120" />
 </p>
 
-> Never miss a class or exam again. A sleek AMOLED-ready timetable & exam scheduler with smart reminders.
+> A timetable app I wished existed when I kept missing the *first 10 minutes* of classes. So I built it — minimal friction, smart reminders, exam mode, and a UI that actually feels nice on an AMOLED screen.
+
+---
+
+## Why This Exists
+Juggling classes, labs, and surprise exam schedules can get messy fast. Calendar apps felt too generic. Note apps got cluttered. Alarm apps were dumb (either *too early* or *too late*). I wanted:
+- A weekly view that stays focused
+- “Heads up, class in X minutes” notifications that I can trust
+- A way to flip into “exam mode” without deleting my normal timetable
+- A design that doesn’t blind me at 6 AM
+
+So this project became my solution — and now it’s yours too.
 
 ---
 
@@ -55,48 +67,16 @@ Press: `a` (Android), `i` (iOS), or scan QR with Expo Go.
 
 ---
 
-## 🛠 Build (EAS)
+## 🧪 Usage Flow (Real Life Example)
+> It’s Monday. 8:40 AM. You get a gentle ping: “Physics starting in 10 minutes.” You grab notes, fill your bottle, and walk in calm — not sprinting through the corridor. That’s the whole point.
 
-APK (direct install):
-```bash
-eas build --platform android --profile production
-```
-AAB (Play Store):
-```bash
-eas build --platform android
-```
-Local (Linux/macOS only):
-```bash
-eas build --platform android --local
-```
-iOS:
-```bash
-eas build --platform ios
-```
+1. Add classes once
+2. Set lead time (5 / 10 / 15 min — your choice)
+3. Forget about it — notifications handle the rest
+4. When exam season approaches: toggle Exam Mode, generate schedule
+5. After the end date, it slides back to normal automatically
 
----
-
-## 📂 Key Files
-| File | Purpose |
-|------|---------|
-| `App.js` | Core app logic, timetable, notification scheduling |
-| `app.json` | Expo config (name, icons, permissions) |
-| `eas.json` | Build profiles (apk, aab, dev) |
-| `assets/` | Icons, splash, (add screenshots) |
-| `docs/DEVELOPMENT.md` | Dev workflow & structure |
-
----
-
-## 🧪 Usage Flow
-1. Add a class (subject, day, time, lead minutes)
-2. Save – notification(s) scheduled automatically
-3. Toggle Exam Mode – enters exam timetable window
-4. Generate exam sessions (optional bulk)
-5. Return to normal mode after end date – auto handled
-
----
-
-## 🔔 Notifications
+## 🔔 Notifications You Actually Want
 - Pre-class reminder: “<Subject> starting in X minutes”
 - Start reminder: “<Subject> has started – ends at HH:MM”
 - Uses platform channels (Android) for high priority
@@ -114,47 +94,48 @@ eas build --platform ios
 
 ---
 
-## 🧩 Templates
-| Type | Examples |
-|------|----------|
-| Subject | Math, Physics, Chemistry |
-| Time | 9:00 AM – 10:00 AM |
-| Exam Schedules | Morning Session, Full Day |
+## Human Touch & Philosophy
+- No accounts, no tracking, no cloud lock-in.
+- Local-first. Your data is *yours*.
+- Designed to reduce anxiety, not add another productivity chore.
+- Dark by default because battery + eyes matter.
 
----
+## Roadmap (Shaping the Future)
+| Idea | Status |
+|------|--------|
+| Home screen widget | Planned |
+| Multi-semester profiles | Planned |
+| Export / Import (JSON) | Planned |
+| Optional sync (privacy-focused) | Exploring |
+| Smart gap suggestions | Idea |
 
-## 🔐 Permissions
-| Permission | Why |
-|-----------|-----|
-| Notifications | Pre & start class alerts |
-| (Android) Exact Alarms | Consistent timing |
+Have a feature dream? Open an issue — genuine suggestions are welcome.
 
----
-
-## 🤝 Contributing
+## Contributing (Friendly Version)
+If you’d like to polish, extend, or break things in a good way:
 ```bash
-git checkout -b feature/awesome
-# make changes
-git commit -m "feat: add awesome thing"
-git push origin feature/awesome
+git checkout -b feature/your-idea
+# build something small & focused
+git commit -m "feat: add <short description>"
+git push origin feature/your-idea
 ```
-Open a PR – descriptive title, screenshots if UI changes.
+Then open a PR with a short summary + (screenshots if UI).
 
----
+## FAQs
+**Does it work offline?** Yes — everything is local.
+**Will I lose data on update?** Not unless storage is cleared manually.
+**Why not push notifications?** Local schedule = immediate + reliable.
+**Can I make it sync across devices?** Not yet — intentional for simplicity.
 
 ## 🧾 License
-MIT – see [`LICENSE`](LICENSE).
+MIT — do what you like. Attribution appreciated but not required.
+
+## A Personal Note
+If this helped you organize your semester or reduced morning chaos, that’s a win. Consider starring the repo so others can discover it.
 
 ---
 
-## 🗓 Roadmap Ideas
-- Widget / Home screen glance
-- Cloud sync (optional)
-- Multi-profile (semesters)
-- Export / Import JSON
+### Crafted with care by **theadhithyankr**  
+> “Stay ahead of your schedule — calmly.”
 
-> Have a feature idea? Open an issue!
-
----
-
-### Made with ❤️ using Expo & React Native
+<p align="center"><sub>Feel free to fork, remix, and make it yours.</sub></p>
