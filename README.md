@@ -137,7 +137,7 @@ If this made your routine smoother or saved you from walking into the wrong clas
 
 ---
 
-### Crafted with care by **theadhithyankr**  
+### Crafted with awesomeness by **ME**  
 > “Stay ahead of your schedule — calmly.”
 
 <p align="center"><sub>Feel free to fork, remix, and make it yours.</sub></p>
