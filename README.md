@@ -130,7 +130,7 @@ Then open a PR with a short summary + (screenshots if UI).
 **Can I make it sync across devices?** Not yet — intentional for simplicity.
 
 ## 🧾 License
-MIT — do what you like. Attribution appreciated but not required.
+MIT — do what you like. Attribution appreciated but not required :).
 
 ## A Personal Note
 If this made your routine smoother or saved you from walking into the wrong class — mission accomplished. Drop a star ⭐ if it helped.
