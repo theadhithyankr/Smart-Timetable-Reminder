@@ -5,16 +5,18 @@
   <img src="./assets/icon.png" alt="App Icon" width="120" height="120" />
 </p>
 
-> A timetable app I wished existed when I kept missing the *first 10 minutes* of classes. So I built it — minimal friction, smart reminders, exam mode, and a UI that actually feels nice on an AMOLED screen.
+> I built this because I kept asking: *"What class is next?"* and hated digging into a cluttered timetable app. I just wanted to glance at the notification shade and know. So this app exists: low-friction, glanceable, and exam-ready.
 
 ---
 
 ## Why This Exists
-Juggling classes, labs, and surprise exam schedules can get messy fast. Calendar apps felt too generic. Note apps got cluttered. Alarm apps were dumb (either *too early* or *too late*). I wanted:
-- A weekly view that stays focused
-- “Heads up, class in X minutes” notifications that I can trust
-- A way to flip into “exam mode” without deleting my normal timetable
-- A design that doesn’t blind me at 6 AM
+I didn’t want to:
+- Open a calendar
+- Scroll a PDF timetable
+- Memorize everything
+- Spam alarms that don’t adapt
+
+I wanted one thing: **reliable, context-aware notifications that tell me what’s next** — without opening anything.
 
 So this project became my solution — and now it’s yours too.
 
@@ -68,13 +70,13 @@ Press: `a` (Android), `i` (iOS), or scan QR with Expo Go.
 ---
 
 ## 🧪 Usage Flow (Real Life Example)
-> It’s Monday. 8:40 AM. You get a gentle ping: “Physics starting in 10 minutes.” You grab notes, fill your bottle, and walk in calm — not sprinting through the corridor. That’s the whole point.
+> It’s Monday. 8:40 AM. You swipe down: “Physics starting in 10 minutes.” No app launch. No anxiety. You walk in ready.
 
 1. Add classes once
 2. Set lead time (5 / 10 / 15 min — your choice)
-3. Forget about it — notifications handle the rest
-4. When exam season approaches: toggle Exam Mode, generate schedule
-5. After the end date, it slides back to normal automatically
+3. Forget about it — notification shade = live timetable
+4. Exam season? Toggle Exam Mode
+5. Done — it reverts automatically after the end date
 
 ## 🔔 Notifications You Actually Want
 - Pre-class reminder: “<Subject> starting in X minutes”
@@ -131,7 +133,7 @@ Then open a PR with a short summary + (screenshots if UI).
 MIT — do what you like. Attribution appreciated but not required.
 
 ## A Personal Note
-If this helped you organize your semester or reduced morning chaos, that’s a win. Consider starring the repo so others can discover it.
+If this made your routine smoother or saved you from walking into the wrong class — mission accomplished. Drop a star ⭐ if it helped.
 
 ---
 
