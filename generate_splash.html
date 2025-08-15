@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Splash Screen Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            border: 1px solid #333;
+            margin: 20px 0;
+        }
+        button {
+            background: #7B2CBF;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #5A189A;
+        }
+    </style>
+</head>
+<body>
+    <h1>Timetable App Splash Screen Generator</h1>
+    <canvas id="splashCanvas" width="1242" height="2436"></canvas>
+    <button onclick="downloadSplash()">Download Splash Screen</button>
+    
+    <script>
+        const canvas = document.getElementById('splashCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function drawSplashScreen() {
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 0, 2436);
+            gradient.addColorStop(0, '#42A5F5'); // Top - Light Blue
+            gradient.addColorStop(1, '#2196F3'); // Bottom - Dark Blue
+            
+            // Fill background
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1242, 2436);
+            
+            // Calculate icon size (40% of screen width)
+            const iconSize = 1242 * 0.4; // 496.8px
+            const centerX = 1242 / 2;
+            const centerY = 2436 / 2;
+            const iconX = centerX - iconSize / 2;
+            const iconY = centerY - iconSize / 2;
+            
+            // Draw calendar icon with notification bell
+            drawCalendarIcon(ctx, iconX, iconY, iconSize);
+        }
+        
+        function drawCalendarIcon(ctx, x, y, size) {
+            const white = '#FFFFFF';
+            ctx.fillStyle = white;
+            ctx.strokeStyle = white;
+            ctx.lineWidth = size * 0.04; // Responsive line width
+            
+            // Calendar base rectangle
+            const calendarWidth = size * 0.7;
+            const calendarHeight = size * 0.6;
+            const calendarX = x + (size - calendarWidth) / 2;
+            const calendarY = y + (size - calendarHeight) / 2 + size * 0.05;
+            
+            // Draw calendar body
+            ctx.fillRect(calendarX, calendarY, calendarWidth, calendarHeight);
+            
+            // Draw calendar header (darker section)
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            const headerHeight = calendarHeight * 0.25;
+            ctx.fillRect(calendarX, calendarY, calendarWidth, headerHeight);
+            
+            // Draw calendar binding rings
+            ctx.fillStyle = white;
+            const ringRadius = size * 0.025;
+            const ringY = calendarY - ringRadius;
+            
+            // Left ring
+            ctx.beginPath();
+            ctx.arc(calendarX + calendarWidth * 0.25, ringY, ringRadius, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Right ring
+            ctx.beginPath();
+            ctx.arc(calendarX + calendarWidth * 0.75, ringY, ringRadius, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw calendar grid lines
+            ctx.strokeStyle = 'rgba(33, 150, 243, 0.3)';
+            ctx.lineWidth = size * 0.008;
+            
+            // Horizontal lines
+            for (let i = 1; i < 4; i++) {
+                const lineY = calendarY + headerHeight + (calendarHeight - headerHeight) * i / 4;
+                ctx.beginPath();
+                ctx.moveTo(calendarX + calendarWidth * 0.1, lineY);
+                ctx.lineTo(calendarX + calendarWidth * 0.9, lineY);
+                ctx.stroke();
+            }
+            
+            // Vertical lines
+            for (let i = 1; i < 4; i++) {
+                const lineX = calendarX + calendarWidth * i / 4;
+                ctx.beginPath();
+                ctx.moveTo(lineX, calendarY + headerHeight);
+                ctx.lineTo(lineX, calendarY + calendarHeight);
+                ctx.stroke();
+            }
+            
+            // Draw notification bell
+            const bellSize = size * 0.25;
+            const bellX = calendarX + calendarWidth - bellSize * 0.5;
+            const bellY = calendarY - bellSize * 0.3;
+            
+            drawNotificationBell(ctx, bellX, bellY, bellSize);
+        }
+        
+        function drawNotificationBell(ctx, x, y, size) {
+            ctx.fillStyle = '#FFFFFF';
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = size * 0.08;
+            
+            // Bell body
+            const bellBodyWidth = size * 0.6;
+            const bellBodyHeight = size * 0.5;
+            const bellBodyX = x + (size - bellBodyWidth) / 2;
+            const bellBodyY = y + size * 0.15;
+            
+            // Draw bell shape using path
+            ctx.beginPath();
+            ctx.moveTo(bellBodyX, bellBodyY + bellBodyHeight);
+            ctx.quadraticCurveTo(bellBodyX, bellBodyY, bellBodyX + bellBodyWidth / 2, bellBodyY);
+            ctx.quadraticCurveTo(bellBodyX + bellBodyWidth, bellBodyY, bellBodyX + bellBodyWidth, bellBodyY + bellBodyHeight);
+            ctx.lineTo(bellBodyX, bellBodyY + bellBodyHeight);
+            ctx.fill();
+            
+            // Bell top handle
+            const handleRadius = size * 0.08;
+            ctx.beginPath();
+            ctx.arc(x + size / 2, y + size * 0.1, handleRadius, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Bell bottom clapper
+            const clapperRadius = size * 0.06;
+            ctx.beginPath();
+            ctx.arc(x + size / 2, bellBodyY + bellBodyHeight + size * 0.15, clapperRadius, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Notification dot
+            ctx.fillStyle = '#FF5722'; // Orange-red for notification
+            const dotRadius = size * 0.08;
+            ctx.beginPath();
+            ctx.arc(x + size * 0.8, y + size * 0.2, dotRadius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        function downloadSplash() {
+            const link = document.createElement('a');
+            link.download = 'splash.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Draw the splash screen when page loads
+        drawSplashScreen();
+    </script>
+</body>
+</html>

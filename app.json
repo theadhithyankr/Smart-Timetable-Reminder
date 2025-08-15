@@ -1,29 +1,47 @@
 {
   "expo": {
-    "name": "timetable-reminder",
-    "slug": "timetable-reminder",
+    "name": "Smart Table",
+    "slug": "smart-table",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "scheme": "smart-table",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "statusBarHidden": true,
+      "statusBarStyle": "dark"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "statusBar": {
+        "hidden": true,
+        "translucent": true,
+        "backgroundColor": "transparent"
+      },
+      "navigationBar": {
+        "visible": false
+      },
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.adhithyankr.smarttable"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "799c5fac-68b9-4fe3-8142-1e6df41366e7"
+      }
     }
   }
 }
